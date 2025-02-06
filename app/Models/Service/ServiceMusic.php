@@ -2,15 +2,12 @@
 
 namespace App\Models\Service;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-
-use App\Models\Ministry;
 use App\Models\Music\Music;
 use App\Traits\TableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Service extends Model
+class ServiceMusic extends Model
 {
     use TableTrait;
 

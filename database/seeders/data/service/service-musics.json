@@ -1,0 +1,226 @@
+[
+    {
+        "service_id": 1,
+        "music_id": 1,
+        "interpreter_id": 2,
+        "style_id": 2,
+        "genre_id": 1
+    },
+    {
+        "service_id": 1,
+        "music_id": 2,
+        "interpreter_id": 3,
+        "style_id": 1,
+        "genre_id": 2
+    },
+    {
+        "service_id": 1,
+        "music_id": 3,
+        "interpreter_id": 4,
+        "style_id": 1,
+        "genre_id": 2
+    },
+    {
+        "service_id": 2,
+        "music_id": 4,
+        "interpreter_id": 5,
+        "style_id": 2,
+        "genre_id": 5
+    },
+    {
+        "service_id": 2,
+        "music_id": 5,
+        "interpreter_id": 6,
+        "style_id": 2,
+        "genre_id": 5
+    },
+    {
+        "service_id": 2,
+        "music_id": 6,
+        "interpreter_id": 7,
+        "style_id": 1,
+        "genre_id": 2
+    },
+    {
+        "service_id": 2,
+        "music_id": 7,
+        "interpreter_id": 8,
+        "style_id": 2,
+        "genre_id": 3
+    },
+    {
+        "service_id": 2,
+        "music_id": 8,
+        "interpreter_id": 9,
+        "style_id": 1,
+        "genre_id": 7
+    },
+    {
+        "service_id": 2,
+        "music_id": 9,
+        "interpreter_id": 10,
+        "style_id": 2,
+        "genre_id": 3
+    },
+    {
+        "service_id": 3,
+        "music_id": 10,
+        "interpreter_id": 11,
+        "style_id": 1,
+        "genre_id": 2
+    },
+    {
+        "service_id": 3,
+        "music_id": 11,
+        "interpreter_id": 13,
+        "style_id": 1,
+        "genre_id": 7
+    },
+    {
+        "service_id": 4,
+        "music_id": 12,
+        "interpreter_id": 12,
+        "style_id": 2,
+        "genre_id": 5
+    },
+    {
+        "service_id": 4,
+        "music_id": 14,
+        "interpreter_id": 4,
+        "style_id": 2,
+        "genre_id": 9
+    },
+    {
+        "service_id": 4,
+        "music_id": 15,
+        "interpreter_id": 7,
+        "style_id": 1,
+        "genre_id": 2
+    },
+    {
+        "service_id": 4,
+        "music_id": 16,
+        "interpreter_id": 15,
+        "style_id": 1,
+        "genre_id": 7
+    },
+    {
+        "service_id": 4,
+        "music_id": 17,
+        "interpreter_id": 14,
+        "style_id": 1,
+        "genre_id": 7
+    },
+    {
+        "service_id": 5,
+        "music_id": 18,
+        "interpreter_id": 16,
+        "style_id": 1,
+        "genre_id": 2
+    },
+    {
+        "service_id": 5,
+        "music_id": 19,
+        "interpreter_id": 4,
+        "style_id": 1,
+        "genre_id": 2
+    },
+    {
+        "service_id": 5,
+        "music_id": 20,
+        "interpreter_id": 17,
+        "style_id": 1,
+        "genre_id": 7
+    },
+    {
+        "service_id": 6,
+        "music_id": 21,
+        "interpreter_id": 3,
+        "style_id": 2,
+        "genre_id": 1
+    },
+    {
+        "service_id": 6,
+        "music_id": 22,
+        "interpreter_id": 1,
+        "style_id": 2,
+        "genre_id": 10
+    },
+    {
+        "service_id": 6,
+        "music_id": 23,
+        "interpreter_id": 4,
+        "style_id": 2,
+        "genre_id": 1
+    },
+    {
+        "service_id": 6,
+        "music_id": 24,
+        "interpreter_id": 18,
+        "style_id": 1,
+        "genre_id": 7
+    },
+    {
+        "service_id": 6,
+        "music_id": 25,
+        "interpreter_id": 19,
+        "style_id": 1,
+        "genre_id": 11
+    },
+    {
+        "service_id": 7,
+        "music_id": 30,
+        "interpreter_id": 4,
+        "style_id": 2,
+        "genre_id": 1
+    },
+    {
+        "service_id": 7,
+        "music_id": 29,
+        "interpreter_id": 21,
+        "style_id": 1,
+        "genre_id": 7
+    },
+    {
+        "service_id": 8,
+        "music_id": 26,
+        "interpreter_id": 4,
+        "style_id": 2,
+        "genre_id": 1
+    },
+    {
+        "service_id": 8,
+        "music_id": 27,
+        "interpreter_id": 20,
+        "style_id": 2,
+        "genre_id": 5
+    },
+    {
+        "service_id": 8,
+        "music_id": 32,
+        "interpreter_id": 8,
+        "style_id": 2,
+        "genre_id": 3
+    },
+    {
+        "service_id": 8,
+        "music_id": 28,
+        "interpreter_id": 18,
+        "style_id": 1,
+        "genre_id": 7
+    },
+    {
+        "service_id": 8,
+        "music_id": 18,
+        "interpreter_id": 16,
+        "style_id": 1,
+        "genre_id": 2
+    },
+    {
+        "service_id": 8,
+        "music_id": 31,
+        "interpreter_id": 17,
+        "style_id": 1,
+        "genre_id": 7
+    }
+]

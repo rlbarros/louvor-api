@@ -11,11 +11,11 @@ class ServiceMusic extends Model
 {
     use TableTrait;
 
-    protected $table = 'services';
+    protected $table = 'service_musics';
 
 
     protected $fillable = [
-        'sarvice_id',
+        'service_id',
         'music_id',
     ];
 
@@ -29,5 +29,14 @@ class ServiceMusic extends Model
     public function Music(): BelongsTo
     {
         return $this->belongsTo(Music::class, 'music_id');
+    }
+
+    public function toStringClass()
+    {
+        $music = Music::find($this->music_id);
+        $service = Music::find($this->service_id);
+
+        $message = $music->name . ' do culto do dia ' . $service->day;
+        return $message;
     }
 }

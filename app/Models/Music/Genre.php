@@ -20,4 +20,10 @@ class Genre extends Model
     ];
 
     public $timestamps = false;
+
+    public function toStringClass()
+    {
+        $message = $this->name;
+        return $message;
+    }
 }

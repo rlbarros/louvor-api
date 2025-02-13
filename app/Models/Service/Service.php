@@ -18,8 +18,12 @@ class Service extends Model
 
     protected $fillable = [
         'day',
-        'service_rype_id',
+        'service_type_id',
         'ministry_id',
+    ];
+
+    protected $casts = [
+        'day'  => 'datetime',
     ];
 
     public $timestamps = false;
@@ -32,5 +36,12 @@ class Service extends Model
     public function Ministry(): BelongsTo
     {
         return $this->belongsTo(Ministry::class, 'ministry_id');
+    }
+
+    public function toStringClass()
+    {
+        $serviceType = ServiceType::find($this->service_type_id);
+        $message = ' de ' . $serviceType->type . 'do dia ' . $this->day;
+        return $message;
     }
 }

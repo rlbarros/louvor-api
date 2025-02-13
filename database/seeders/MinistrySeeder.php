@@ -16,7 +16,8 @@ class MinistrySeeder extends Seeder
         // User::factory(10)->create();
 
         Ministry::factory()->create([
-            'name' => 'IEA Loteamento Brasil'
+            'name' => 'IEA Loteamento Brasil',
+            'state' => 'RN'
         ]);
     }
 }

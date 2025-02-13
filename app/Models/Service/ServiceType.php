@@ -13,13 +13,19 @@ class ServiceType extends Model
 {
     use TableTrait;
 
-    protected $table = 'services';
+    protected $table = 'service_types';
 
 
     protected $fillable = [
         'name',
-        'number_count',
+        'music_count',
     ];
 
     public $timestamps = false;
+
+    public function toStringClass()
+    {
+        $message = $this->name;
+        return $message;
+    }
 }

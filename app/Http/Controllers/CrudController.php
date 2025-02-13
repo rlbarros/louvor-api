@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\App\AppCrudAction;
+use App\Enums\AppCrudAction;
 use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -31,18 +31,22 @@ abstract class CrudController extends BaseController
 
     /** end overridable functions  */
 
-
-    public function validation(Request $request)
-    {
-        return $this->sendObject($this->validations(), $request, 'registros validados com sucesso');
-    }
-
-
     function afterCrudAction($action, $old, $new) {}
 
     public function index(Request $request)
     {
-        $registros = $this->view()->get();
+        $view = $this->view();
+        $eloquentQuery = $view->query();
+
+        $input = $request->all();
+
+        foreach ($input as $key => $value) {
+            $eloquentQuery = $eloquentQuery->where($key, $value);
+        }
+
+
+        $registros = $eloquentQuery->get();
+
         return $this->sendResponse($registros, 'registros retornados com sucesso com sucesso.');
     }
 
@@ -64,7 +68,7 @@ abstract class CrudController extends BaseController
     public function save(Request $request)
     {
 
-        $request->validate($this->validacoes());
+        $request->validate($this->validations());
 
         $id = $request->get('id');
         $data = $request->all();
@@ -78,15 +82,16 @@ abstract class CrudController extends BaseController
                     $object->fill($data);
                     $object->save();
                     $this->afterCrudAction(AppCrudAction::save, null, $object);
-                    $message =  "registro de " . $this->modelName() . " criado com sucesso";
-                    return $this->sendCreated($data, $message);
+                    $message =  "registro de " . $this->modelName() . " " .  $object->toStringClass() . " criado com sucesso";
+                    DB::commit();
+                    return $this->sendCreated($object, $message);
                 } catch (Exception $e) {
                     return $this->sendError($e->getMessage(), $data, 422);
                 }
             } else {
 
                 $object = $this->model()::find($id);
-                $updateObject =  clone $object;
+                $updateObject = clone $object;
 
                 foreach ($data as $prop => $value) {
                     $updateObject->{$prop} = $value;
@@ -95,6 +100,7 @@ abstract class CrudController extends BaseController
                     $updateObject->save();
                     $this->afterCrudAction(AppCrudAction::update,  $object, $updateObject);
                     $message =  "registro de " . $this->modelName() . " " .  $updateObject->toStringClass() . " atualizado com sucesso";
+                    DB::commit();
                     return $this->sendUpdated($updateObject, $message);
                 } catch (Exception $e) {
                     return $this->sendError($e->getMessage(), $data, 422);

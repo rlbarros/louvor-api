@@ -14,11 +14,11 @@ class BaseController extends Controller
     public function sendResponse($result, $message, $code = 200, $acao = 'consulta', $sucesso = true)
     {
         $response = [
-            'acao' => $acao,
-            'codigo_http' => $code,
-            'conteudo' => $result,
-            'mensagem' => $message,
-            'sucesso' => $sucesso,
+            'action' => $acao,
+            'http_code' => $code,
+            'content' => $result,
+            'message' => $message,
+            'success' => $sucesso,
         ];
 
         return response()->json($response, $code);
@@ -31,7 +31,7 @@ class BaseController extends Controller
      */
     public function sendCreated($result, $message)
     {
-        return $this->sendResponse($result, $message, 201, 'criacao');
+        return $this->sendResponse($result, $message, 201, 'criation');
     }
 
     /**
@@ -42,7 +42,7 @@ class BaseController extends Controller
     public function sendUpdated($result, $message)
     {
 
-        return $this->sendResponse($result, $message, 200, 'atualizacao');
+        return $this->sendResponse($result, $message, 200, 'updating');
     }
 
     /**
@@ -53,7 +53,7 @@ class BaseController extends Controller
     public function sendDeleted($result, $message)
     {
 
-        return $this->sendResponse($result, $message, 200, 'exclusao');
+        return $this->sendResponse($result, $message, 200, 'exclusion');
     }
 
 

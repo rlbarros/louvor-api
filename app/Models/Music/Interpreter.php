@@ -12,7 +12,7 @@ class Interpreter extends Model
 {
     use TableTrait;
 
-    protected $table = 'genres';
+    protected $table = 'interpreters';
 
 
     protected $fillable = [
@@ -20,4 +20,10 @@ class Interpreter extends Model
     ];
 
     public $timestamps = false;
+
+    public function toStringClass()
+    {
+        $message = $this->name;
+        return $message;
+    }
 }

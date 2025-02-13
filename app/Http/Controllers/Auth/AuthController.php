@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\BaseController;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends BaseController
 {
@@ -21,8 +23,8 @@ class AuthController extends BaseController
         $validator = Validator::make($request->all(), [
             'nome' => 'required',
             'email' => 'required|email',
-            'senha' => 'required',
-            'confirma_senha' => 'required|same:senha',
+            'password' => 'required',
+            'confirm_password' => 'required|same:password',
         ]);
 
         if ($validator->fails()) {
@@ -30,7 +32,7 @@ class AuthController extends BaseController
         }
 
         $input = $request->all();
-        $input['senha'] = bcrypt($input['senha']);
+        $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
         $success['usuario'] =  $user;
 
@@ -42,22 +44,21 @@ class AuthController extends BaseController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function login()
+    public function login(Request $request)
     {
-        $credentials = request(['email', 'senha']);
 
         $credentials = [
-            'email' => $credentials['email'],
-            'password' => $credentials['senha'],
+            'email' => $request->get('email'),
+            'password' => $request->get('password'),
         ];
 
-        $auth = auth();
-        if (!$token = $auth->attempt($credentials)) {
+        if (!$token = Auth::attempt($credentials)) {
             return $this->sendResponse(
                 [
-                    'token_acesso' => '',
-                    'token_tipo' => '',
-                    'expira_em' => 0
+                    'success' => false,
+                    'token' => '',
+                    'expires' => 0,
+                    'user' => []
                 ],
                 'as credenciais informádas são inválidas',
                 200,
@@ -78,7 +79,7 @@ class AuthController extends BaseController
      */
     public function profile()
     {
-        $success = auth()->user();
+        $success = Auth::user();
 
         return $this->sendResponse($success, 'perfil retornado com sucesso.');
     }
@@ -90,7 +91,7 @@ class AuthController extends BaseController
      */
     public function logout()
     {
-        auth()->logout();
+        Auth::logout();
 
         return $this->sendResponse([], 'logout ocorrido com sucesso.');
     }
@@ -121,11 +122,16 @@ class AuthController extends BaseController
         /** @var Illuminate\Auth\AuthManager */
         $auth = auth();
 
+        $issued = date('Y-m-d H:i:s');
+
+        $expired = Carbon::now();
+        $expiredTime = $expired->addMinutes($auth->factory()->getTTL());
+
         return [
-            'token_acesso' => $token,
-            'token_tipo' => 'bearer',
-            'emitido_em' => date('Y-m-d H:i:s'),
-            'expira_em' => $auth->factory()->getTTL() * 60
+            'token' => $token,
+            'issued' => $issued,
+            'expires' => $expiredTime->getPreciseTimestamp(3),
+            'user' => $auth->user()
         ];
     }
 }

@@ -25,15 +25,15 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Rodrigo',
         //     'email' => 'rodrigo.lima.barros@gmail.com',
         // ]);
-        $this->call(MinistrySeeder::class);
-        $this->call(UserSeeder::class);
+        // $this->call(MinistrySeeder::class);
+        // $this->call(UserSeeder::class);
 
-        $this->call(StyleSeeder::class);
-        $this->call(GenreSeeder::class);
-        $this->call(InterpreterSeeder::class);
-        $this->call(MusicSeeder::class);
+        // $this->call(StyleSeeder::class);
+        // $this->call(GenreSeeder::class);
+        // $this->call(InterpreterSeeder::class);
+        // $this->call(MusicSeeder::class);
 
-        $this->call(ServiceTypeSeeder::class);
+        // $this->call(ServiceTypeSeeder::class);
         $this->call(ServiceSeeder::class);
         $this->call(ServiceMusicSeeder::class);
     }

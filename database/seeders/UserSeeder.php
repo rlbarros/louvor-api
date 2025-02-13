@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
         User::factory()->create([
             'name' => 'Rodrigo',
             'email' => 'rodrigo.lima.barros@gmail.com',
+            'ministry_id' => 1
         ]);
     }
 }

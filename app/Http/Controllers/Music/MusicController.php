@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Music;
 
 use App\Http\Controllers\CrudController;
+use App\Models\Music\Music;
+use App\Models\Music\MusicView;
 use App\Models\Music\Style;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,7 +13,12 @@ class MusicController extends CrudController
 
     function model(): Model
     {
-        return new Style();
+        return new Music();
+    }
+
+    function view(): Model
+    {
+        return new MusicView();
     }
 
     function validations(): array
@@ -26,6 +33,6 @@ class MusicController extends CrudController
 
     function modelName(): string
     {
-        return "estilo";
+        return "música";
     }
 }
